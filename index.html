@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="tchoumi313">
+    <title> Vue card carousel Example </title>
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="./css/style.css">
+    <!-- Demo CSS (No need to include it into your project) -->
+    <link rel="stylesheet" href="./css/demo.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400" rel="stylesheet" />
+</head>
+
+<body>
+    <header class="cd__intro">
+        <h1> Vue card carousel Example </h1>
+        <p> Vue card carousel </p>
+        <div class="cd__action">
+            <a href="" title="Back to download and github respository" class="cd__btn back">Get to source code</a>
+        </div>
+    </header>
+    <!--$%adsense%$-->
+    <main class="cd__main">
+        <template id="v-carousel">
+  <div class="card-carousel-wrapper">
+    <div class="card-carousel--nav__left" @click="moveCarousel(-1)" :disabled="atHeadOfList"></div>
+    <div class="card-carousel">
+      <div class="card-carousel--overflow-container">
+        <div class="card-carousel-cards" :style="{ transform: 'translateX(' + currentOffset + 'px)'}">
+          <div class="card-carousel--card" v-for="item in items">
+            <img :src="item.image"/>
+            <div class="card-carousel--card--footer">
+              <p>{{ item.name }}</p>
+              <p class="tag" v-for="(tag, index) in item.tag" :class="index > 0 ? 'secondary' : ''">{{ tag }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-carousel--nav__right" @click="moveCarousel(1)" :disabled="atEndOfList"></div>
+  </div>
+</template>
+
+        <div id="app">
+            <carousel></carousel>
+        </div>
+
+    </main>
+    <footer class="cd__credit">Donald T --> <a title="Free web design code & scripts" href="https://www.codepel.com?source=demo-page" target="_blank">source code</a></footer>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.17/vue.min.js'></script>
+    <!-- Script JS -->
+    <script src="./js/script.js"></script>
+    <!--$%analytics%$-->
+</body>
+
+</html>
